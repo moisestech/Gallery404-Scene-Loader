@@ -48,6 +48,15 @@
 					"visible"  : true
 				},
 
+				"cube4" : {
+					"geometry" : "cube",
+					"material" : "brillo",
+					"position" : [ 0, 20, 0 ],
+					"rotation" : [ 0, -0.3, 0 ],
+					"scale"	   : [ 2, 2, 2 ],
+					"visible"  : true
+				},
+
 				"sphere_lambert" : {
 					"geometry" : "sphere",
 					"material" : "lambert_green",
@@ -306,8 +315,8 @@
 
 				"ground" : {
 					"geometry" : "plane",
-					"material" : "basic_gray",
-					"position" : [ 0, -10, 0 ],
+					"material" : "gallery_floor",
+					"position" : [ 0, 0, 0 ],
 					"rotation" : [ -1.57, 0, 0 ],
 					"scale"	   : [ 100, 100, 100 ],
 					"visible"  : true
@@ -333,7 +342,7 @@
 					"aspect": 1.33333,
 					"near"  : 1,
 					"far"   : 1000,
-					"position": [ 0, 0, 100 ],
+					"position": [ 0, 0, 0 ],
 					"target"  : [ 0, 0, 0 ]
 				},
 
@@ -704,6 +713,16 @@
 		"multi_veyron": {
 			"type": "MeshFaceMaterial",
 			"parameters": { "materials": [ "interior", "chrome", "darkerchrome", "glass", "chrome", "chrome", "backlights", "backsignals" ] }
+		},
+
+		"gallery_floor": {
+			"type": "MeshBasicMaterial",
+			"parameters": { "color": 16777215, "map": "texture_gallery_floor" }
+		},
+
+		"brillo": {
+			"type": "MeshBasicMaterial",
+			"parameters": { "color": 16777215, "map": "texture_brillo" }
 		}
 
 	},
@@ -795,6 +814,18 @@
 			"url": "textures/minecraft/grass.png",
 			"magFilter": "NearestFilter",
 			"minFilter": "LinearMipMapLinearFilter"
+		},
+
+		"texture_gallery_floor": {
+			"url": "textures/gallery/marble.png",
+			"magFilter": "NearestFilter",
+			"minFilter": "LinearMipMapLinearFilter"
+		},
+
+		"texture_brillo": {
+			"url": "textures/gallery/BrilloBox.png",
+			"magFilter": "NearestFilter",
+			"minFilter": "LinearMipMapLinearFilter"
 		}
 
 	},
@@ -802,8 +833,8 @@
 	"fogs":	{
 		"basic": {
 			"type": "linear",
-			"color": [1,0,0],
-			"near": 1,
+			"color": [1,1,1],
+			"near": 0,
 			"far": 1000
 		},
 
@@ -824,7 +855,7 @@
 		"bgcolor": [0,0,0],
 		"bgalpha": 1,
 		"camera": "camera1",
-		"fog": "black"
+		"fog": "basic"
 	}
 
 }

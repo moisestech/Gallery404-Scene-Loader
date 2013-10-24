@@ -358,26 +358,9 @@
 
 			function animate() {
 
-				if (currentScene == 0){
-                    render();
-                    stats.update();
-                }
-
-                if (currentScene == 1){
-
-                    controls.update( Date.now() - time );
-                    
-                    // updates the new scene with the pointerLock camera
-                    // replacing the camera.position interaction from
-                    // the first scene
-                    renderer.render( scene, camera );
-                    time = Date.now();           
-                }
-
+                render();
+                stats.update();         
 				requestAnimationFrame( animate );
-
-				//render();
-				stats.update();
 
 			}
 
@@ -385,11 +368,20 @@
 
 				var delta = clock.getDelta();
 
+				if (currentScene == 0){
 
-				camera.position.x += ( mouseX - camera.position.x ) * .001;
-				camera.position.y += ( - mouseY - camera.position.y ) * .001;
+                    camera.position.x += ( mouseX - camera.position.x ) * .001;
+					camera.position.y += ( - mouseY - camera.position.y ) * .001;
+					camera.lookAt( scene.position );
+                }
 
-				camera.lookAt( scene.position );
+                if (currentScene == 1){
+
+                    controls.update( Date.now() - time );
+                    time = Date.now();           
+                }
+
+				
 
 				// update skinning
 
